@@ -16,8 +16,9 @@ var gifExtractor = function(videoModel) {
     }
 
     var options = {
-        width: 550,
+        width: 300,
         duration: 5,
+        rate: 8,
         start: Math.floor(Math.random() * (videoModel.duration - 10)) + 10
     };
     console.log(videoModel);
