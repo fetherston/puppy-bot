@@ -1,1 +1,2 @@
-web: node index.js
+web: node auth.js
+do: node server.js

@@ -3,10 +3,10 @@ var config = require('../config');
 var tumblr = require('tumblr.js');
 
 var client = new tumblr.Client({
-    consumer_key: process.env.TUMBLR_KEY || config.tumblr_key,
-    consumer_secret: process.env.TUMBLR_SECRET || config.tumblr_secret,
-    token: process.env.ACCESS_TOKEN || config.tumblr_auth.access_token,
-    token_secret: process.env.ACCESS_SECRET || config.tumblr_auth.access_secret
+    consumer_key: process.env.TUMBLR_KEY,
+    consumer_secret: process.env.TUMBLR_SECRET,
+    token: process.env.ACCESS_TOKEN,
+    token_secret: process.env.ACCESS_SECRET
 });
 
 var gifExtractor = function(videoModel) {
