@@ -16,7 +16,7 @@ var config = {
     }
 };
 
-var grant = new Grant(require(config));
+var grant = new Grant(config);
 
 var app = express();
 app.use(logger('dev'));
