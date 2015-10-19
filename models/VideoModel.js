@@ -34,7 +34,10 @@ VideoModel.prototype.download = function() {
             this.tags = info.tags;
         }, this));
 
-        video.on('error', deferred.reject);
+        video.on('error', function() {
+            console.log('Download failed!!!', arguments);
+            deferred.reject();
+        });
         video.on('end', _.bind(function() {
             this.videoPath = path;
             deferred.resolve(this);
