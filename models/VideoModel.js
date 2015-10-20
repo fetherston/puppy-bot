@@ -15,7 +15,7 @@ var VideoModel = function(data) {
 VideoModel.prototype.download = function() {
     var deferred = Q.defer();
     if (this.type === 'youtube') {
-        var video = ytdownload(this.sourceUrl, ['--format=135']);
+        var video = ytdownload(this.sourceUrl, ['--format=135/133/134']);
         var path = './temp/ytvideo-' + this.id + '.mp4';
         video.on('info', _.bind(function(info) {
             console.log('Download started');
