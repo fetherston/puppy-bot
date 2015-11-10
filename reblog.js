@@ -1,26 +1,11 @@
-var YouTubeSearcher = require('./searchers/YouTubeSearcher');
-var Logger = require('bug-killer');
-var gifExtractor = require('./utils/GifExtractor');
-var dogs = require('./terms/dogs');
-var fs = require('fs-extra');
+var gify = require('gify');
+var config = require('../config');
+var tumblr = require('tumblr.js');
 
-fs.removeSync('./temp');
-fs.mkdirsSync('./temp/gifs');
-
-var onVideoDownloadComplete = function(videoModel) {
-    gifExtractor(videoModel);
-};
-
-var handleSearch = function(videoModels) {
-    var model = videoModels[Math.floor(Math.random() * videoModels.length)];
-    Logger.log('Found ' + videoModels.length, 'results.');
-    model.download().then(onVideoDownloadComplete);
-};
-
-var term = dogs.getRandom();
-Logger.log('Searching for ' + term);
-
-var ytSearch = new YouTubeSearcher(term);
-ytSearch.search().then(handleSearch, function(err) {
-    Logger.log(err, 'error');
+var client = new tumblr.Client({
+    consumer_key: process.env.TUMBLR_KEY,
+    consumer_secret: process.env.TUMBLR_SECRET,
+    token: process.env.ACCESS_TOKEN,
+    token_secret: process.env.ACCESS_SECRET
 });
+

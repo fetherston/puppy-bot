@@ -7,7 +7,10 @@ var dogs = {
         'basset hound',
         'beagle',
         'dog',
-        'cute dog'
+        'cute dog',
+        'corgi',
+        'husky puppy',
+        'shiba inu'
     ],
 
     getRandom: function() {
