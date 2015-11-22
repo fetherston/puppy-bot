@@ -21,7 +21,7 @@ var YouTubeSearcher = function(term, options) {
 YouTubeSearcher.prototype.search = function() {
     var youTube = new YouTube();
     var deferred = Q.defer();
-    console.log(config.GOOGLE_APP_KEY);
+
     youTube.setKey(config.GOOGLE_APP_KEY);
     youTube.addParam('order', this.options.order);
     youTube.addParam('type', 'video');
