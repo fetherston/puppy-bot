@@ -29,7 +29,7 @@ var gifExtractor = function(videoModel) {
         t.photo(config.blogname, {
             data: config.gif_path + '/' + videoModel.id + '.gif',
             tags: videoModel.tags.slice(0, 3).join(',')
-        });
+        }, function() {});
     });
 };
 

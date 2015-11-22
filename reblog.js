@@ -14,8 +14,6 @@ t.tagged(dogs.random() + ' gif', {limit: 5}, function(iDontKnowWtfThisIs, posts)
     t.reblog(config.blogname, {
         id: post.id,
         reblog_key: post.reblog_key
-    }, function() {
-        console.log(arguments);
-    });
+    }, function() {});
 });
 
