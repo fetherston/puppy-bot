@@ -2,7 +2,7 @@ var YouTube = require('youtube-node');
 var _ = require('lodash');
 var Q = require('q');
 
-var config = require('../config');
+var config = require('../config/config');
 var VideoModel = require('../models/VideoModel');
 
 var YouTubeSearcher = function(term, options) {
@@ -21,7 +21,8 @@ var YouTubeSearcher = function(term, options) {
 YouTubeSearcher.prototype.search = function() {
     var youTube = new YouTube();
     var deferred = Q.defer();
-    youTube.setKey(config.app_key);
+    console.log(config.GOOGLE_APP_KEY);
+    youTube.setKey(config.GOOGLE_APP_KEY);
     youTube.addParam('order', this.options.order);
     youTube.addParam('type', 'video');
     youTube.addParam('videoDuration', this.options.videoDuration);

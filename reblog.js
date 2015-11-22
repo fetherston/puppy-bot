@@ -1,5 +1,5 @@
 var gify = require('gify');
-var config = require('../config');
+var config = require('../config/config');
 var tumblr = require('tumblr.js');
 
 var client = new tumblr.Client({

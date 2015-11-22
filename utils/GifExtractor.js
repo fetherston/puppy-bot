@@ -1,12 +1,12 @@
 var gify = require('gify');
-var config = require('../config');
+var config = require('../config/config');
 var tumblr = require('tumblr.js');
 
 var client = new tumblr.Client({
-    consumer_key: process.env.TUMBLR_KEY,
-    consumer_secret: process.env.TUMBLR_SECRET,
-    token: process.env.ACCESS_TOKEN,
-    token_secret: process.env.ACCESS_SECRET
+    consumer_key: config.TUMBLR_KEY,
+    consumer_secret: config.TUMBLR_SECRET,
+    token: config.ACCESS_TOKEN,
+    token_secret: config.ACCESS_SECRET
 });
 
 var gifExtractor = function(videoModel) {
