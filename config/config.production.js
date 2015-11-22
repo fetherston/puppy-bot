@@ -5,7 +5,7 @@ var config = {
     ACCESS_SECRET: process.env.ACCESS_SECRET,
     GOOGLE_APP_KEY: process.env.GOOGLE_APP_KEY,
     gif_path: './temp/gifs',
-    blogname: 'itspuppypuppypuppy'
+    blogname: process.env.BLOG_NAME
 };
 
 module.exports = config;
