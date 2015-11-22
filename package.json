@@ -23,10 +23,10 @@
     "opn": "^3.0.2",
     "q": "^1.4.1",
     "r-json": "^1.0.0",
-    "tumblr": "^0.4.1",
-    "tumblr.js": "0.0.5",
+    "tumblr.js": "0.0.7",
     "youtube-api": "^1.2.1",
     "youtube-dl": "^1.10.5",
     "youtube-node": "^1.3.0"
-  }
+  },
+  "devDependencies": {}
 }

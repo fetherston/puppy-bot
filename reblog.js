@@ -1,11 +1,21 @@
-var gify = require('gify');
-var config = require('../config/config');
+var config = require('./config/config');
 var tumblr = require('tumblr.js');
+var dogs = require('./terms/dogs');
 
-var client = new tumblr.Client({
-    consumer_key: process.env.TUMBLR_KEY,
-    consumer_secret: process.env.TUMBLR_SECRET,
-    token: process.env.ACCESS_TOKEN,
-    token_secret: process.env.ACCESS_SECRET
+var t = new tumblr.Client({
+    consumer_key: config.TUMBLR_KEY,
+    consumer_secret: config.TUMBLR_SECRET,
+    token: config.ACCESS_TOKEN,
+    token_secret: config.ACCESS_SECRET
+});
+
+t.tagged(dogs.random() + ' gif', {limit: 5}, function(iDontKnowWtfThisIs, posts) {
+    var post = posts[Math.floor(Math.random() * posts.length)];
+    t.reblog(config.blogname, {
+        id: post.id,
+        reblog_key: post.reblog_key
+    }, function() {
+        console.log(arguments);
+    });
 });
 

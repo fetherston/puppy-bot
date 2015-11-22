@@ -17,7 +17,7 @@ var handleSearch = function(videoModels) {
     model.download().then(onVideoDownloadComplete);
 };
 
-var term = dogs.getRandom();
+var term = dogs.random();
 Logger.log('Searching for ' + term);
 
 var ytSearch = new YouTubeSearcher(term);

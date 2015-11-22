@@ -13,7 +13,7 @@ var dogs = {
         'shiba inu'
     ],
 
-    getRandom: function() {
+    random: function() {
         return this.terms[Math.floor(Math.random() * this.terms.length)];
     }
 };

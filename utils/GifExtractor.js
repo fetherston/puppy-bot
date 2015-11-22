@@ -2,7 +2,7 @@ var gify = require('gify');
 var config = require('../config/config');
 var tumblr = require('tumblr.js');
 
-var client = new tumblr.Client({
+var t = new tumblr.Client({
     consumer_key: config.TUMBLR_KEY,
     consumer_secret: config.TUMBLR_SECRET,
     token: config.ACCESS_TOKEN,
@@ -21,18 +21,14 @@ var gifExtractor = function(videoModel) {
         rate: 8,
         start: Math.floor(Math.random() * (videoModel.duration - 10)) + 10
     };
-    console.log(videoModel);
-    console.log(options);
 
     gify(videoModel.videoPath, config.gif_path + '/' + videoModel.id + '.gif', options, function(err) {
         if (err) {
             throw err;
         }
-        client.photo(config.blogname, {
+        t.photo(config.blogname, {
             data: config.gif_path + '/' + videoModel.id + '.gif',
             tags: videoModel.tags.slice(0, 3).join(',')
-        }, function() {
-            console.log(arguments);
         });
     });
 };
